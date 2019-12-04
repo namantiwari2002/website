@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47eae268-2a4d-4aa5-bb8e-1d54570162cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/profile_pics/IMG_7393.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/migrations/0002_auto_20191204_1211.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djp/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/profile_pics/IMG_20190304_104923.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -175,7 +166,7 @@
       <workItem from="1575263728340" duration="8680000" />
       <workItem from="1575376646076" duration="21000" />
       <workItem from="1575376668009" duration="2869000" />
-      <workItem from="1575434997638" duration="4959000" />
+      <workItem from="1575434997638" duration="5283000" />
     </task>
     <servers />
   </component>

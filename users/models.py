@@ -13,7 +13,8 @@ DEPARTMENTS = (
     ("Mathematics and Computing", "Mathematics and Computing"),
     ("Mechanical Engineering", "Mechanical Engineering"),
     ("Design ", "Design "),
-    ("Biosciences and Bioengineering", "Biosciences and Bioengineering")
+    ("Biosciences and Bioengineering", "Biosciences and Bioengineering"),
+    ("None", "None"),
 
 )
 
@@ -42,6 +43,7 @@ CLUBS = (
     ("Entrepreneurial Development Cell (EDC)", "Entrepreneurial Development Cell (EDC)"),
     ("Udgam", "Udgam"),
     ("Techniche", "Techniche"),
+    ("None", "None"),
 
 
 )
@@ -54,6 +56,7 @@ BATCH = (
     ("2022", "2022"),
     ("2023", "2023"),
     ("2024", "2024"),
+    ("None", "None"),
 )
 
 
@@ -61,9 +64,9 @@ class Profile(models.Model):
     user = models.OneToOneField(User, related_name="profile", on_delete=models.CASCADE)
     image = models.ImageField(default='default.png', upload_to='profile_pics')
     is_merchant = models.BooleanField(default=False)
-    department = models.CharField(max_length=120, choices=DEPARTMENTS, default='Chemical Engineering')
-    club = models.CharField(max_length=120, choices=CLUBS, default='Alcheringa')
-    batch = models.CharField(max_length=4, choices=BATCH, default='2018')
+    department = models.CharField(max_length=120, choices=DEPARTMENTS, default='None')
+    club = models.CharField(max_length=120, choices=CLUBS, default='None')
+    batch = models.CharField(max_length=4, choices=BATCH, default='None')
 
     def __str__(self):
         return f'{self.user.username} Profile'
