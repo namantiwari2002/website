@@ -19,6 +19,9 @@ def cart_home(request):
         request.session['items_total'] = cart.cart_items.count()
         cart.total = new_total
         cart.save()
+        empty_message = "Your cart is Empty, please keep shopping."
+        if cart.total == float(0):
+            context = {"empty": True, "empty_message": empty_message}
 
     else:
         empty_message = "Your cart is Empty, please keep shopping."

@@ -2,11 +2,68 @@ from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
 
+DEPARTMENTS = (
+    ("Chemical Engineering", "Chemical Engineering"),
+    ("Biotechnology", "Biotechnology"),
+    ("Civil Engineering", "Civil Engineering"),
+    ("Computer Science and Engineering", "Computer Science and Engineering"),
+    ("Electronics and Communication Engineering", "Electronics and Communication Engineering"),
+    ("Electronics and Electrical Engineering", "Electronics and Electrical Engineering"),
+    ("Engineering Physics", "Engineering Physics"),
+    ("Mathematics and Computing", "Mathematics and Computing"),
+    ("Mechanical Engineering", "Mechanical Engineering"),
+    ("Design ", "Design "),
+    ("Biosciences and Bioengineering", "Biosciences and Bioengineering")
+
+)
+
+
+CLUBS = (
+    ("Alcheringa", "Alcheringa"),
+    ("Cadence", "Cadence"),
+    ("Anchorenza and RadioG (AnR)", "Anchorenza and RadioG (AnR)"),
+    ("Fine Arts", "Fine Arts"),
+    ("Montage", "Montage"),
+    ("Lumiere", "Lumiere"),
+    ("Octaves", "Octaves"),
+    ("Expressions", "Expressions"),
+    ("LitSoc-DebSoc", "LitSoc-DebSoc"),
+    ("Aeromodelling", "Aeromodelling"),
+    ("Astronomy", "Astronomy"),
+    ("Coding", "Coding"),
+    ("Consulting and Analytics (CnA)", "Consulting and Analytics (CnA)"),
+    ("Electronics ", "Electronics "),
+    ("Prakriti ", "Prakriti "),
+    ("Finance and Economics", "Finance and Economics"),
+    ("Robotics", "Robotics "),
+    ("ACUMEN", "ACUMEN"),
+    ("TechEvince", "TechEvince"),
+    ("Green Automobile", "Green Automobile"),
+    ("Entrepreneurial Development Cell (EDC)", "Entrepreneurial Development Cell (EDC)"),
+    ("Udgam", "Udgam"),
+    ("Techniche", "Techniche"),
+
+
+)
+
+BATCH = (
+    ("2018", "2018"),
+    ("2019", "2019"),
+    ("2020", "2020"),
+    ("2021", "2021"),
+    ("2022", "2022"),
+    ("2023", "2023"),
+    ("2024", "2024"),
+)
+
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, related_name="profile", on_delete=models.CASCADE)
     image = models.ImageField(default='default.png', upload_to='profile_pics')
-    is_merchant = models.BooleanField(default=0)
+    is_merchant = models.BooleanField(default=False)
+    department = models.CharField(max_length=120, choices=DEPARTMENTS, default='Chemical Engineering')
+    club = models.CharField(max_length=120, choices=CLUBS, default='Alcheringa')
+    batch = models.CharField(max_length=4, choices=BATCH, default='2018')
 
     def __str__(self):
         return f'{self.user.username} Profile'

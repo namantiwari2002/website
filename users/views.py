@@ -10,11 +10,15 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Your account has been created. You can now Log In!')
+            messages.success(request, f'Your account has been created. Please update your Profile first after logging in for better experience')
             return redirect('login')
     else:
         form = UserRegisterForm()
-    return render(request, 'users/register.html', {'form': form})
+    template = 'users/register.html'
+    context = {
+        'form': form,
+    }
+    return render(request, template, context)
 
 
 @login_required
@@ -33,8 +37,9 @@ def profile(request):
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
 
+    template = 'users/profile.html'
     context = {
         'u_form': u_form,
         'p_form': p_form,
     }
-    return render(request, 'users/profile.html', context)
+    return render(request, template, context)
