@@ -2,8 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47eae268-2a4d-4aa5-bb8e-1d54570162cf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/cart/migrations/0003_auto_20191205_1249.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/migrations/0002_auto_20191204_1656.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/migrations/0003_auto_20191204_2140.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/templates/orders/checkout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/templates/orders/user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/migrations/0002_userstripe.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/migrations/0003_address.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/templates/users/address.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/templates/users/edit_address.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart/templates/cart/cart_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/cart/templates/cart/cart_home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djp/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/djp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/users/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,8 +68,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -166,7 +197,10 @@
       <workItem from="1575263728340" duration="8680000" />
       <workItem from="1575376646076" duration="21000" />
       <workItem from="1575376668009" duration="2869000" />
-      <workItem from="1575434997638" duration="5283000" />
+      <workItem from="1575434997638" duration="12121000" />
+      <workItem from="1575464980483" duration="27790000" />
+      <workItem from="1575606027538" duration="1205000" />
+      <workItem from="1575610814284" duration="6376000" />
     </task>
     <servers />
   </component>

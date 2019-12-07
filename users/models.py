@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
 
+from django.conf import settings
+
+
 DEPARTMENTS = (
     ("Chemical Engineering", "Chemical Engineering"),
     ("Biotechnology", "Biotechnology"),
@@ -59,6 +62,11 @@ BATCH = (
     ("None", "None"),
 )
 
+ADDRESS_TYPE = (
+    ("H", "Home Address"),
+    ("W", "Work/Office Address")
+)
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, related_name="profile", on_delete=models.CASCADE)
@@ -83,4 +91,33 @@ class Profile(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+
+class Address(models.Model):
+    user = models.ForeignKey(User, related_name="addresses", on_delete=models.CASCADE)
+    zip = models.CharField(max_length=10, blank=False, null=False)
+    house_no = models.CharField(max_length=120, blank=False, null=False)
+    area = models.CharField(max_length=120, blank=False, null=False)
+    city = models.CharField(max_length=120, blank=False, null=False)
+    state = models.CharField(max_length=120, blank=False, null=False)
+    landmark = models.CharField(max_length=120, blank=True, null=True)
+    name = models.CharField(max_length=120, blank=False, null=False)
+    mobile_no = models.CharField(max_length=10, blank=False, null=False)
+    alternate_no = models.CharField(max_length=10, blank=True, null=True)
+    address_type = models.CharField(max_length=120, choices=ADDRESS_TYPE, default='H')
+
+    def __str__(self):
+        return str(self.user.username)
+
+    # def get_fulladdress(self):
+
+
+
+class UserStripe(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    stripe_id = models.CharField(max_length=120)
+
+    def __str__(self):
+        return str(self.stripe_id)
+
 

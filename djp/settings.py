@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'orders.apps.OrdersConfig',
     'cart.apps.CartConfig',
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_cleanup',
+    'cities_light',
 ]
 
 MIDDLEWARE = [
@@ -141,3 +143,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'profile'
 LOGIN_URL = 'login'
+
+STRIPE_SECRETE_KEY = "sk_test_2Y6tVIOsVwdZcGAmhS9wSNQ500ooATeoev"
+STRIPE_PUBLISHABLE_KEY = "pk_test_otwQpOtGY04J2nnL2InMRh7q00Yuk9FtdN"
+
