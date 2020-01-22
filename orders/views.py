@@ -15,7 +15,6 @@ def orders(request):
     context = {
         'empty': empty,
         'user': request.user,
-        'empty_message': empty_message,
     }
     template = "orders/user.html"
     return render(request, template, context)

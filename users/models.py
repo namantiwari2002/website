@@ -1,10 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
-
 from django.conf import settings
-
-
 DEPARTMENTS = (
     ("Chemical Engineering", "Chemical Engineering"),
     ("Biotechnology", "Biotechnology"),
@@ -61,11 +58,11 @@ BATCH = (
     ("2024", "2024"),
     ("None", "None"),
 )
-
 ADDRESS_TYPE = (
     ("H", "Home Address"),
     ("W", "Work/Office Address")
 )
+
 
 
 class Profile(models.Model):

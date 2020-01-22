@@ -2,7 +2,7 @@
 {% block content %}
 
     {% if empty %}
-    <h3> {{ empty_message }}</h3>
+    <h1 style="'text-align:center"> {{ empty_message }}</h1>
     {% else %}
         {% for order in user.order_set.all %}
             <div class="col-sm-8 col-sm-offset-2">
