@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
-from django.conf import settings
 DEPARTMENTS = (
     ("Chemical Engineering", "Chemical Engineering"),
     ("Biotechnology", "Biotechnology"),
@@ -108,13 +107,5 @@ class Address(models.Model):
 
     # def get_fulladdress(self):
 
-
-
-class UserStripe(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    stripe_id = models.CharField(max_length=120)
-
-    def __str__(self):
-        return str(self.stripe_id)
 
 

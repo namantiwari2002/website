@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.urls import reverse
 from .models import Cart, CartItem
 from blog.models import Product, Variation
-
+from django.contrib import messages
 
 def cart_home(request):
     try:
@@ -43,6 +43,7 @@ def remove_from_cart(request, id):
     # cartitem.cart = None
     # cartitem.save()
     #send success message
+    messages.success(request, f'Product successfully removed')
     return HttpResponseRedirect(reverse("cart"))
 
 
@@ -102,9 +103,11 @@ def decrease_by_one(request, id):
     cart_item = CartItem.objects.get(id=id)
     if cart_item.quantity == 1:
         cart_item.delete()
+        messages.success(request, f'Product successfully removed')
     else:
         cart_item.quantity = cart_item.quantity - 1
         cart_item.save()
+        messages.success(request, f'Product quantity successfully decreased by 1')
     return redirect('cart')
 
 
@@ -112,5 +115,6 @@ def increase_by_one(request, id):
     cart_item = CartItem.objects.get(id=id)
     cart_item.quantity = cart_item.quantity + 1
     cart_item.save()
+    messages.success(request,f'Product quantity successfully increased by 1')
     return redirect('cart')
 
