@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
     <script src="https://kit.fontawesome.com/ec3df03138.js" crossorigin="anonymous"></script>
     {% if title %}
         <title> WEBSITE {{ title }} </title>
     {% else %}
-         <title> WEBSITE </title>
+        <title> WEBSITE </title>
     {% endif %}
 
     <style>
@@ -26,296 +26,318 @@
 
 
         .card-signin {
-  border: 0;
-  border-radius: 1rem;
-  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-}
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+        }
 
-.card-signin .card-title {
-  margin-bottom: 2rem;
-  font-weight: 300;
-  font-size: 1.5rem;
-}
 
-.card-signin .card-body {
-  padding: 2rem;
-}
+        .btn-google {
+            font-family: "Montserrat Medium",sans-serif;
+            color: #555;
+            background-color: #fff;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.2;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            width: calc((100% - 20px)/2);
+            height: 70px;
+            border-radius: 10px;
+            box-shadow: 0 1px 5px 0 rgba(0,0,0,.2);
+            -moz-box-shadow: 0 1px 5px 0 rgba(0,0,0,.2);
+            -webkit-box-shadow: 0 1px 5px 0 rgba(0,0,0,.2);
+            -o-box-shadow: 0 1px 5px 0 rgba(0,0,0,.2);
+            -webkit-transition: all .4s;
+            -o-transition: all .4s;
+            -moz-transition: all .4s;
+            transition: all .4s;
+            position: relative;
+            z-index: 1;
+        }
+        .card-signin .card-title {
+            margin-bottom: 2rem;
+            font-weight: 300;
+            font-size: 1.5rem;
+        }
 
-.form-signin {
-  width: 100%;
-}
+        .card-signin .card-body {
+            padding: 2rem;
+        }
 
-.form-signin .btn {
-  font-size: 80%;
-  border-radius: 5rem;
-  letter-spacing: .1rem;
-  font-weight: bold;
-  padding: 1rem;
-  transition: all 0.2s;
-}
+        .form-signin {
+            width: 100%;
+        }
 
-.form-label-group {
-  position: relative;
-  margin-bottom: 1rem;
-}
+        .form-signin .btn {
+            font-size: 80%;
+            border-radius: 5rem;
+            letter-spacing: .1rem;
+            font-weight: bold;
+            padding: 1rem;
+            transition: all 0.2s;
+        }
 
-.form-label-group input {
-  height: auto;
-  border-radius: 2rem;
-}
+        .form-label-group {
+            position: relative;
+            margin-bottom: 1rem;
+        }
 
-.form-label-group>input,
-.form-label-group>label {
-  padding: var(--input-padding-y) var(--input-padding-x);
-}
+        .form-label-group input {
+            height: auto;
+            border-radius: 2rem;
+        }
 
-.form-label-group>label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  margin-bottom: 0;
-  /* Override default `<label>` margin */
-  line-height: 1.5;
-  color: #495057;
-  border: 1px solid transparent;
-  border-radius: .25rem;
-  transition: all .1s ease-in-out;
-}
+        .form-label-group>input,
+        .form-label-group>label {
+            padding: var(--input-padding-y) var(--input-padding-x);
+        }
 
-.form-label-group input::-webkit-input-placeholder {
-  color: transparent;
-}
 
-.form-label-group input:-ms-input-placeholder {
-  color: transparent;
-}
+        .form-label-group>label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            margin-bottom: 0;
+            /* Override default `<label>` margin */
+            line-height: 1.5;
+            color: #495057;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+            transition: all .1s ease-in-out;
+        }
 
-.form-label-group input::-ms-input-placeholder {
-  color: transparent;
-}
+        .form-label-group input::-webkit-input-placeholder {
+            color: transparent;
+        }
 
-.form-label-group input::-moz-placeholder {
-  color: transparent;
-}
+        .form-label-group input:-ms-input-placeholder {
+            color: transparent;
+        }
 
-.form-label-group input::placeholder {
-  color: transparent;
-}
+        .form-label-group input::-ms-input-placeholder {
+            color: transparent;
+        }
 
-.form-label-group input:not(:placeholder-shown) {
-  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
-  padding-bottom: calc(var(--input-padding-y) / 3);
-}
+        .form-label-group input::-moz-placeholder {
+            color: transparent;
+        }
 
-.form-label-group input:not(:placeholder-shown)~label {
-  padding-top: calc(var(--input-padding-y) / 3);
-  padding-bottom: calc(var(--input-padding-y) / 3);
-  font-size: 12px;
-  color: #777;
-}
+        .form-label-group input::placeholder {
+            color: transparent;
+        }
 
-.btn-google {
-  color: white;
-  background-color: #ea4335;
-}
+        .form-label-group input:not(:placeholder-shown) {
+            padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+            padding-bottom: calc(var(--input-padding-y) / 3);
+        }
 
-@media screen and (max-width: 768px) {
+        .form-label-group input:not(:placeholder-shown)~label {
+            padding-top: calc(var(--input-padding-y) / 3);
+            padding-bottom: calc(var(--input-padding-y) / 3);
+            font-size: 12px;
+            color: #777;
+        }
+
+
+        @media screen and (max-width: 768px) {
             .product-img-div {
                 height: 320px;
             }
         }
         @media (max-width: 840px){
-        .container {
-            max-width: 530px;
-        }
-        @media (max-width: 640px){
-        .container {
-            max-width: 300px;
-        }
-        @media (max-width: 420px){
-        .container {
-            max-width: 200px;
-        }
+            .container {
+                max-width: 530px;
+            }
+            @media (max-width: 640px){
+                .container {
+                    max-width: 300px;
+                }
+                @media (max-width: 420px){
+                    .container {
+                        max-width: 200px;
+                    }
     </style>
 
 </head>
 
 <body style="margin-top: 0; background: #fff">
 
-        <header class="site-header">
-          <header style="background-color:#616D7E">
-          <nav class="navbar navbar-expand-lg navbar-light "style="background:transparent;">
-           <img src="https://www.iitg.ac.in/stud/gymkhana/technical/assets/img/resources/codingclubLogo.png" width="60" height="60" alt="">
+<header class="site-header">
+    <header style="background-color:#616D7E">
+        <nav class=" navbar navbar-expand-lg navbar-light ">
+            <img src="https://www.iitg.ac.in/stud/gymkhana/technical/assets/img/resources/codingclubLogo.png" width="60px" height="60px" alt="Coding Club">
             <div class="container">
-              <a style="color: #FFFFFF" class="navbar-brand mr-4" href="{% url 'blog:product-home' %}">WEBSITE </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarToggle">
-                <div class="navbar-nav mr-auto">
+                <a style="color: #FFFFFF" class="navbar-brand mr-4" href="{% url 'blog:product-home' %}">WEBSITE </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav mr-auto">
 
-                    <a style="color: #FFFFFF" onMouseOver="this.style.color='#3090C7'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'polls:index' %}">Polling</a>
-                </div>
-
-              <form class="form-inline my-2 my-lg-0" action='/s/'>
-                  <input class="form-control mr-sm-2" type="search" name='q' placeholder="Search" aria-label="Search" >
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
-
-                <!-- Navbar Right Side -->
-                <div class="navbar-nav">
-                    {% if user.is_authenticated %}
-                        {% if user.profile.is_merchant == 1 %}
-                            <a style="color: #FFFFFF" onMouseOver="this.style.color='#3090C7'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'admin:index' %}">Manage Products</a>
-
-                        {% endif %}
-                             <a style="color: #FFFFFF" onMouseOver="this.style.color='#3090C7'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-
-                        <a style="color: #FFFFFF" onMouseOver="this.style.color='#3090C7'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
-                    {% else %}
-                        <a style="color: #FFFFFF" onMouseOver="this.style.color='#3090C7'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                        <a style="color: #FFFFFF" onMouseOver="this.style.color='#3090C7'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'register' %}">Register</a>
-                    {% endif %}
-                <a style="color: #FFFFFF" onMouseOver="this.style.color='#3090C7'" onMouseOut="this.style.color='#FFFFFF'" class="nav-item nav-link" href="{% url 'cart' %}">Cart  <span class="badge">{{ request.session.items_total }}</span></a>
-                </div>
-              </div>
-            </div>
-          </nav>
-         </header>
-        <hr style="width: 90%;background:linear-gradient(to right,deeppink,dodgerblue);height: 3px">
-
-
-
-
-    </header>
-
-
-
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }}">
-                        {{ message }}
+                        <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'polls:index' %}">Polling</a>
                     </div>
-                {%  endfor %}
-            {% endif %}
-            {% block content %}
-            {%  endblock %}
+
+                    <form class="form-inline my-2 my-lg-0" action='/s/'>
+                        <input class="form-control mr-sm-2" type="search" name='q' placeholder="Search" aria-label="Search" >
+                        <button style="color: white" class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+
+                    <!-- Navbar Right Side -->
+                    <div class="navbar-nav">
+                        {% if user.is_authenticated %}
+                            {% if user.profile.is_merchant == 1 %}
+                                <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'admin:index' %}">Manage Products</a>
+
+                            {% endif %}
+                            <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+
+                            <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                        {% else %}
+                            <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                            <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                        {% endif %}
+                        <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'" class="nav-item nav-link" href="{% url 'cart' %}">Cart  <span class="badge">{{ request.session.items_total }}</span></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <hr style="width: 90%;background:linear-gradient(to right,deeppink,dodgerblue);height: 3px">
 
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</header>
 
+
+
+{% if messages and user.profile.is_merchant == 0 %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show text-center" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+    {%  endfor %}
+{% endif %}
+{% block content %}
+{%  endblock %}
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
-</body>
-<hr style="width: 90%;background:linear-gradient(to right,deeppink,dodgerblue);height: 3px">
+
+<!----Footer --->
+
 
 <footer class="page-footer font-small stylish-color-dark pt-4">
 
-  <!-- Footer Links -->
-  <div class="container text-center text-md-left" >
 
-    <!-- Grid row -->
-    <div class="row">
+    <hr style="width: 90%;background:linear-gradient(to right,deeppink,dodgerblue);height: 3px">
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left" >
 
-      <!-- Grid column -->
-      <div class="col-md-4 mx-auto">
+        <!-- Grid row -->
+        <div class="row">
 
-        <!-- Content -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About us</h5>
-        <p>We are students of IIT Guwahati who aim to provide quality apparel to IITGians.
-            We take orders from all across the country and deliver to your doorstep.
-            We provide an option to submit your own design.
-            We also hold polls frequently, product with maximum votes will get available soon . We are open all around the year to cater to our fellow IITGians.</p>
+            <!-- Grid column -->
+            <div class="col-md-4 mx-auto">
 
-      </div>
-      <!-- Grid column -->
+                <!-- Content -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About us</h5>
+                <p>We are students of IIT Guwahati who aim to provide quality apparel to IITGians.
+                    We take orders from all across the country and deliver to your doorstep.
+                    We provide an option to submit your own design.
+                    We also hold polls frequently, product with maximum votes will get available soon . We are open all around the year to cater to our fellow IITGians.</p>
 
+            </div>
+            <!-- Grid column -->
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>̥
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#!">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 3</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 4</a>
+                    </li>
+                </ul>
 
+            </div>
+            <!-- Grid column -->
 
+            <hr class="clearfix w-100 d-md-none">
 
-
-      <!-- Grid column -->
-      <div class="col-md-2 mx-auto">
-
-        <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!">Link 1</a>
-          </li>
-          <li>
-            <a href="#!">Link 2</a>
-          </li>
-          <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
-          </li>
-        </ul>
-
-      </div>
-      <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none">
-
-      <!-- Grid column -->
-
-      <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
 
     </div>
-    <!-- Grid row -->
+    <!-- Footer Links -->
 
-  </div>
-  <!-- Footer Links -->
+    <hr>
 
-  <hr>
+    <!-- Call to action -->
+    <ul class="list-unstyled list-inline text-center py-2">
+        <li class="list-inline-item">
+            <h5 class="mb-1">Register for free</h5>
+        </li>
+        <li class="list-inline-item">
+            <a href="{% url 'register' %}" class="btn btn-danger btn-rounded">Sign up!</a>
+        </li>
+    </ul>
+    <!-- Call to action -->
 
-  <!-- Call to action -->
-  <ul class="list-unstyled list-inline text-center py-2">
-    <li class="list-inline-item">
-      <h5 class="mb-1">Register for free</h5>
-    </li>
-    <li class="list-inline-item">
-      <a href="{% url 'register' %}" class="btn btn-danger btn-rounded">Sign up!</a>
-    </li>
-  </ul>
-  <!-- Call to action -->
+    <hr>
 
-  <hr>
+    <!-- Social buttons -->
+    <ul class="list-unstyled list-inline text-center">
+        <li class="list-inline-item">
+            <a class="btn-floating btn-fb mx-1">
+                <a class="fab fa-facebook-f"  href="https://www.facebook.com/Nishantkumar38"> </a>
+            </a>
+        </li>
 
-  <!-- Social buttons -->
-  <ul class="list-unstyled list-inline text-center">
-    <li class="list-inline-item">
-      <a class="btn-floating btn-fb mx-1">
-        <a class="fab fa-facebook-f"  href="https://www.facebook.com/Nishantkumar38"> </a>
-      </a>
-    </li>
-
-    <li class="list-inline-item">
-      <a class="btn-floating btn-gplus mx-1">
-        <i class="fab fa-google-plus-g"> </i>
-      </a>
-    </li>
+        <li class="list-inline-item">
+            <a class="btn-floating btn-gplus mx-1">
+                <i class="fab fa-google-plus-g"> </i>
+            </a>
+        </li>
 
 
-  </ul>
-  <!-- Social buttons -->
+    </ul>
+    <!-- Social buttons -->
 
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Tshirt Design:
-    <a> All rights reserved</a>
-  </div>
-  <!-- Copyright -->
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Tshirt Design:
+        <a> All rights reserved</a>
+    </div>
+    <!-- Copyright -->
 
 </footer>
 <!-- Footer -->
+</body>
 </html>

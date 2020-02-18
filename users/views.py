@@ -41,6 +41,7 @@ def profile(request):
     }
     return render(request, 'users/profile.html', context)
 
+
 @login_required
 def new_address(request):
     if request.method == "POST":
@@ -70,6 +71,8 @@ def new_address(request):
     template = 'users/address.html'
     return render(request, template, context)
 
+
+@login_required
 def edit_address(request, id):
     if request.method == "POST":
         address = Address.objects.get(id=id)
@@ -101,6 +104,7 @@ def edit_address(request, id):
     return render(request, template, context)
 
 
+@login_required
 def remove_address(request, id):
     address = Address.objects.get(id=id)
     address.delete()

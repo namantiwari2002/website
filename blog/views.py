@@ -23,7 +23,7 @@ def product_list(request, category_slug=None):
         print("YES")
         if request.user.profile.club == "None" or request.user.profile.batch == 'None':
             print("YEAH")
-            messages.success(request, f'Please update your profile for better experience.')
+            messages.warning(request, f'Please update your profile for better experience.')
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = Product.objects.filter(category=category)
