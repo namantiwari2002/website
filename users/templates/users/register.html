@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
     {#    <div class="content-section">#}
@@ -44,9 +45,9 @@
                     </div>
                     <div class="form-group row">
 
-                        <label for="id_email"></label>
+                        <label for="{{form.email.id_for_label}}"></label>
                         <div class="col-sm-12">
-                            <input type="email" class="form-control"  placeholder="Email" name="{{ form.email.html_name }}" id="id_email" value="{{ form.email.value|default_if_none:'' }}" required >
+                            <input type="email" class="form-control"  placeholder="Email" name="{{ form.email.html_name }}" id="{{form.email.id_for_label}}" value="{{ form.email.value|default_if_none:'' }}" required >
                             {% for error in form.email.errors %}
                                 <p class="text-danger "><strong>{{ error }}</strong></p>
                             {% endfor %}
@@ -55,9 +56,9 @@
                     </div>
                     <div class="form-group row">
 
-                        <label for="id_password1" ></label>
+                        <label for="{{ form.password1.id_for_label }}" ></label>
                         <div class="col-sm-12">
-                            <input type="password" class="form-control" placeholder="Password" name="{{ form.password1.html_name }}" id="id_password1" value="{{ form.password1.value|default_if_none:'' }}" required >
+                            <input type="password" class="form-control" placeholder="Password" name="{{ form.password1.html_name }}" id="{{ form.password1.id_for_label }}" value="{{ form.password1.value|default_if_none:'' }}" required >
                             <small class="form-text text-muted">{{ form.password1.help_text }} </small>
                             {% for error in form.password1.errors %}
                                 <p class="text-danger "><strong> {{ error }} </strong></p>
@@ -67,16 +68,16 @@
 
                     <div class="form-group row">
 
-                        <label for="id_password2" ></label>
+                        <label for="{{ form.password2.id_for_label }}" ></label>
                         <div class="col-sm-12">
-                            <input type="password" class="form-control" placeholder="Password Confirmation" name="{{ form.password2.html_name }}" id="id_password2" value="{{ form.password2.value|default_if_none:'' }}" required >
+                            <input type="password" class="form-control" placeholder="Password Confirmation" name="{{ form.password2.html_name }}" id="{{ form.password2.id_for_label }}" value="{{ form.password2.value|default_if_none:'' }}" required >
                             <small class="form-text text-muted">{{ form.password2.help_text }} </small>
                             {% for error in form.password2.errors %}
                                 <p class="text-danger "><strong> {{ error }} </strong></p>
                             {% endfor %}
                         </div>
                     </div>
-                    <hr style="background-color: dimgrey;height: 0.5px">
+                    <hr>
                     <div class="col-sm-6 mx-auto"><button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign Up</button></div>
                     <br>
 

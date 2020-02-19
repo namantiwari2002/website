@@ -3,13 +3,17 @@ from .models import Category, Product
 from django.contrib import messages
 
 def search(request):
+    categories = Category.objects.all()
     try:
         q = request.GET.get('q')
     except:
         q = None
     if q:
         products = Product.objects.filter(name__icontains=q)
-        context = {'query': q, 'products': products}
+        context = {'query': q,
+                   'products': products,
+                   'categories': categories,
+                   }
     else:
         context = {}
     return render(request, 'blog/result.html', context)
@@ -20,9 +24,7 @@ def product_list(request, category_slug=None):
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
     if request.user.is_authenticated:
-        print("YES")
-        if request.user.profile.club == "None" or request.user.profile.batch == 'None':
-            print("YEAH")
+        if request.user.profile.club == "None" or request.user.profile.department == 'None':
             messages.warning(request, f'Please update your profile for better experience.')
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)

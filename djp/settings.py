@@ -151,5 +151,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'blog:product-home'
 LOGIN_URL = 'login'
-USF_FORMAT='usf_timestamp'
+USF_FORMAT = 'usf_timestamp'
 

@@ -1,32 +1,34 @@
 {% extends "blog/base.html" %}
+
 {% load static %}
 {% block content %}
-
     <br>
     <br>
 
     <div class="container " style="margin-left: 2%; margin-right: 2%; max-width: 95%">
 
         <div class="row">
-            <div  class="col-lg-2" style="margin-bottom: auto" >
+                <div class="col-sm-11 col-md-9 col-lg-2 mx-auto">
+                <div  id="myHeader" class="fixme col-sm-12 "  >
 
-                <h4 style="text-align:center;" >Categories</h4>
+                    <h4 style="text-align:center;" >Categories</h4>
 
-                <ul style="list-style-type:none; color: black" class="list-group text-center ">
-                    <li style="background: transparent; margin-bottom: 0.4rem" {% if not category %} class="list-group-item mb-2"{% endif %}><a {% if not category %} class="" style="color: deeppink; size: 20px" {% endif %} class="text-body"  href="{% url 'blog:product_list' %}">All</a></li>
+                    <ul style="list-style-type:none; color: black" class="list-group text-center ">
+                        <li style="background: transparent; margin-bottom: 0.4rem" {% if not category %} class="list-group-item mb-2"{% endif %}><a {% if not category %} class="" style="color: deeppink; size: 20px" {% endif %} class="text-body"  href="{% url 'blog:product_list' %}">All</a></li>
 
-                    {% for c in categories %}
+                        {% for c in categories %}
 
-                        <li style="background: transparent; margin-bottom: 0.4rem" {% if category.slug == c.slug %} class="list-group-item mb-2"{% endif %}>
+                            <li style="background: transparent; margin-bottom: 0.4rem" {% if category.slug == c.slug %} class="list-group-item mb-2"{% endif %}>
 
-                            <a  {% if category.slug == c.slug %} style="color: deeppink; size: 20px" {% else %} class="text-body" {% endif %}  href="{{ c.get_absolute_url }}">{{ c.name }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-                <br>
+                                <a  {% if category.slug == c.slug %} style="color: deeppink; size: 20px" {% else %} class="text-body" {% endif %}  href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <br>
 
-                <br>
-            </div>
+                    <br>
+                </div>
+                </div>
 
 
             <div class="col-lg-10">
@@ -63,5 +65,19 @@
         </div>
 
     </div>
+    <script>
+        window.onscroll = function() {myFunction()};
+
+        var header = document.getElementById("myHeader");
+        var sticky = header.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("fixme");
+            } else {
+                header.classList.remove("fixme");
+            }
+        }
+    </script>
 
 {% endblock content %}

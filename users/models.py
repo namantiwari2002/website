@@ -2,26 +2,26 @@ from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
 DEPARTMENTS = (
-    ("Chemical Engineering", "Chemical Engineering"),
-    ("Biotechnology", "Biotechnology"),
-    ("Civil Engineering", "Civil Engineering"),
-    ("Computer Science and Engineering", "Computer Science and Engineering"),
-    ("Electronics and Communication Engineering", "Electronics and Communication Engineering"),
-    ("Electronics and Electrical Engineering", "Electronics and Electrical Engineering"),
-    ("Engineering Physics", "Engineering Physics"),
-    ("Mathematics and Computing", "Mathematics and Computing"),
-    ("Mechanical Engineering", "Mechanical Engineering"),
+    ("CE", "Chemical Engineering"),
+    ("BioTech", "Biotechnology"),
+    ("Civil", "Civil Engineering"),
+    ("CSE", "Computer Science and Engineering"),
+    ("ECE", "Electronics and Communication Engineering"),
+    ("EEE", "Electronics and Electrical Engineering"),
+    ("EP", "Engineering Physics"),
+    ("MnC", "Mathematics and Computing"),
+    ("Mech", "Mechanical Engineering"),
     ("Design ", "Design "),
-    ("Biosciences and Bioengineering", "Biosciences and Bioengineering"),
+    ("BnB", "Biosciences and Bioengineering"),
     ("None", "None"),
 
 )
 
 
 CLUBS = (
-    ("Alcheringa", "Alcheringa"),
+    ("Alcher", "Alcheringa"),
     ("Cadence", "Cadence"),
-    ("Anchorenza and RadioG (AnR)", "Anchorenza and RadioG (AnR)"),
+    ("AnR", "Anchorenza and RadioG"),
     ("Fine Arts", "Fine Arts"),
     ("Montage", "Montage"),
     ("Lumiere", "Lumiere"),
@@ -31,15 +31,15 @@ CLUBS = (
     ("Aeromodelling", "Aeromodelling"),
     ("Astronomy", "Astronomy"),
     ("Coding", "Coding"),
-    ("Consulting and Analytics (CnA)", "Consulting and Analytics (CnA)"),
-    ("Electronics ", "Electronics "),
-    ("Prakriti ", "Prakriti "),
-    ("Finance and Economics", "Finance and Economics"),
+    ("CnA", "Consulting and Analytics"),
+    ("Electronics", "Electronics"),
+    ("Prakriti", "Prakriti"),
+    ("FnE", "Finance and Economics"),
     ("Robotics", "Robotics "),
     ("ACUMEN", "ACUMEN"),
     ("TechEvince", "TechEvince"),
     ("Green Automobile", "Green Automobile"),
-    ("Entrepreneurial Development Cell (EDC)", "Entrepreneurial Development Cell (EDC)"),
+    ("EDC", "Entrepreneurial Development Cell"),
     ("Udgam", "Udgam"),
     ("Techniche", "Techniche"),
     ("None", "None"),
@@ -84,7 +84,7 @@ class Profile(models.Model):
         img = Image.open(self.image.path)
 
         if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
+            output_size = (300, img.width*(img.height/300))
             img.thumbnail(output_size)
             img.save(self.image.path)
 
