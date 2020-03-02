@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -21,6 +22,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    merchant = models.ForeignKey(User, on_delete=models.CASCADE, limit_choices_to={'groups': 1})
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     name = models.CharField(max_length=150)
     description = models.TextField(blank=True)
@@ -30,7 +32,11 @@ class Product(models.Model):
     available = models.BooleanField(default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to='products', blank=True)
+    image = models.ImageField(upload_to='products')
+    image1 = models.ImageField(upload_to='products', blank=True, null=True)
+    image2 = models.ImageField(upload_to='products', blank=True, null=True)
+    image3 = models.ImageField(upload_to='products', blank=True, null=True)
+
 
     class Meta:
         ordering = ('name',)

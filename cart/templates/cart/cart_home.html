@@ -25,7 +25,7 @@
                     <td> Total : {{ cart.total }}</td>
                 </tr>
             </tfoot>
-    {% for item in cart.cart_items.all %}
+    {% for item in cart.cart_item.all %}
         <tr><td> {{ item.product }}
                 {% if item.variations.all %}
                     <ul>

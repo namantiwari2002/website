@@ -6,15 +6,16 @@ from .utils import id_generator
 from .forms import CheckoutForm
 
 
-@login_required()
+@login_required
 def orders(request):
     empty_message = "You have no orders to see"
     empty = False
-    if request.user.order_set.count() <= 0:
+    if request.user.cart_user.filter(active=False).count() <= 0:
         empty = True
     context = {
         'empty': empty,
-        'user': request.user,
+        'empty_message': empty_message,
+        'cart_list': request.user.cart_user.filter(active=False),
     }
     template = "orders/user.html"
     return render(request, template, context)
@@ -23,10 +24,8 @@ def orders(request):
 @login_required
 def checkout(request):
     try:
-        the_id = request.session['cart_id']
-        cart = Cart.objects.get(id=the_id)
+        cart = Cart.objects.get(user=request.user, active=True)
     except:
-        the_id = None
         return HttpResponseRedirect(reverse("cart"))
     try:
         new_order = Order.objects.get(cart=cart)

@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    {#    <script src="https://kit.fontawesome.com/ec3df03138.js" crossorigin="anonymous"></script>#}
+        <script src="https://kit.fontawesome.com/ec3df03138.js" crossorigin="anonymous"></script>
     {% if title %}
         <title> WEBSITE {{ title }} </title>
     {% else %}
@@ -32,7 +32,6 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
-
                         <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'polls:index' %}">Polling</a>
                     </div>
 
@@ -45,12 +44,14 @@
                     <div class="navbar-nav">
                         {% if user.is_authenticated %}
                             {% if user.profile.is_merchant == 1 %}
-                                <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'admin:index' %}">Manage Products</a>
+                                <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'blog:manageproducts' %}">Manage Products</a>
 
                             {% endif %}
+
                             <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
 
                             <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                            <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'orders' %}">Orders</a>
                         {% else %}
                             <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'login' %}">Login</a>
                             <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'register' %}">Register</a>
@@ -81,8 +82,7 @@
     {%  endfor %}
 {% endif %}
 
-{% block content %}
-{%  endblock %}
+
 
 
 
@@ -95,7 +95,8 @@
 
 <!----Footer --->
 
-
+{% block content %}
+{%  endblock %}
 <footer class="page-footer font-small stylish-color-dark pt-4 footer-fixed" >
 
 
@@ -107,7 +108,7 @@
         <div class="row">
 
             <!-- Grid column -->
-            <div class="col-sm-11 col-lg-5 col-md-5  mx-auto">
+            <div class="col-sm-11 col-lg-6 col-md-6  mx-auto">
 
                 <!-- Content -->
                 <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About us</h5>
@@ -119,7 +120,7 @@
             </div>
             <!-- Grid column -->
             <!-- Grid column -->
-            <div class="col-lg-2 col-md-2 col-sm-11 mx-auto">
+            <div class="col-lg-3 col-md-3 col-sm-11 mx-auto">
                 <!-- Links -->
                 <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
 
@@ -139,7 +140,7 @@
                 </ul>
 
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-11 mx-auto">
+            <div class="col-lg-3 col-md-3 col-sm-11 mx-auto">
                 <!-- Links -->
                 <h5 class="font-weight-bold text-center text-uppercase mt-3 mb-1">Contact Us</h5>
                 <!-- Social buttons -->
@@ -158,7 +159,7 @@
     </div>
     <!-- Footer Links -->
     <!-- Call to action -->
-    <ul class="list-unstyled list-inline text-center py-2">
+    <ul class="list-unstyled list-inline text-center">
         <li class="list-inline-item">
             <h5 class="mb-1">Register for free</h5>
         </li>
@@ -168,7 +169,7 @@
     </ul>
     <!-- Call to action -->
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2020 Tshirt Design: All rights reserved </div>
+    <div class="footer-copyright text-center mb-4">© 2020 Tshirt Design: All rights reserved </div>
     <!-- Copyright -->
 
 </footer>

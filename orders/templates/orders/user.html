@@ -3,27 +3,29 @@
 
     <br>
     {% if empty %}
-    <h1 style="'text-align:center"> {{ empty_message }}</h1>
+        <div class="col-sm-8 mx-auto mb-5"><h2 class="text-center"> {{ empty_message }}</h2></div>
+        <div class="col-sm-8 mx-auto text-center text-body"><h5> <a href="{% url 'blog:product-home' %}">Continue Shopping</a></h5></div>
     {% else %}
-        {% for order in user.order_set.all %}
-            <div class="col-sm-8 col-sm-offset-2">
-                <table class="table">
-                    <thead>
+        {% for cart in cart_list %}
+            {% for order in cart.order_cart.all %}
+                <div class="col-sm-8 col-sm-offset-2">
+                    <table class="table">
+                        <thead>
                         <th>Item</th>
                         <th>Price</th>
                         <th>Quantity</th>
                         <th></th>
-                    </thead>
-                    <tfoot>
+                        </thead>
+                        <tfoot>
                         <tr>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td> Total Cost : {{ order.cart.total }} <br> Shipping Cost : {{ order.shipping_total }} <br> Total : {{ order.total }}</td>
                         </tr>
-                    </tfoot>
-                    {% for item in order.cart.cart_items.all %}
-                        <tr><td> {{ item.product }}
+                        </tfoot>
+                        {% for item in order.cart.cart_item.all %}
+                            <tr><td> {{ item.product }}
                                 {% if item.variations.all %}
                                     <ul>
                                         {% for subitem in item.variations.all %}
@@ -33,12 +35,13 @@
                                 {% endif %}
                             </td>
 
-                            <td>{{ item.product.price }}</td>
-                            <td>{{ item.quantity }}</td>
-                        </tr>
-                    {% endfor %}
-            </table>
-            </div>
+                                <td>{{ item.product.price }}</td>
+                                <td>{{ item.quantity }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            {% endfor %}
         {% endfor %}
     {% endif %}
 

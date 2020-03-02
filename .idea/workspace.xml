@@ -2,19 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47eae268-2a4d-4aa5-bb8e-1d54570162cf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/blog/templates/blog/manageproducts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/migrations/0002_variation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/static/blog/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/blog/static/blog/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/templates/blog/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/templates/blog/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart/migrations/0002_cartitem_variations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart/migrations/0003_auto_20200115_1816.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart/templates/cart/cart_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/cart/templates/cart/cart_home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djp/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/products/default.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/products/jackets_CSfryav.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/products/jeans_QkLuaaw.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/products/jeans_lKc6oa4.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/products/shirt_dGCawKM.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/products/sweater_Wnt1ifI.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/products/sweater_e7Dt5KS.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/migrations/0002_auto_20191204_1656.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/migrations/0003_auto_20191204_2140.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/orders/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/templates/orders/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/orders/templates/orders/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/orders/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/orders/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0002_auto_20191205_1411.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0003_address_userstripe.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0004_delete_userstripe.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/signals.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/templates/users/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/users/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/logout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/templates/users/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/users/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/register.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,8 +81,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -214,17 +247,18 @@
       <workItem from="1582058400851" duration="7071000" />
       <workItem from="1582101766594" duration="10218000" />
       <workItem from="1582124296988" duration="6467000" />
+      <workItem from="1582168538381" duration="2175000" />
+      <workItem from="1582228900646" duration="8101000" />
+      <workItem from="1582267710232" duration="4863000" />
+      <workItem from="1582314192751" duration="5018000" />
+      <workItem from="1582567537576" duration="15170000" />
+      <workItem from="1582587665559" duration="49000" />
+      <workItem from="1582639127610" duration="124000" />
+      <workItem from="1582640293500" duration="166000" />
+      <workItem from="1582666696763" duration="6412000" />
+      <workItem from="1582963643295" duration="4396000" />
     </task>
     <servers />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />

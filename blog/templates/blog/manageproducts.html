@@ -1,0 +1,85 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show text-center" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+    {%  endfor %}
+{% endif %}
+    <div class="col-lg-7 col-md-10 col-sm-12 mx-auto">
+        <form class="form-signin" method="POST">
+            {% csrf_token %}
+            {% for form in formset %}
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6 mx-auto">
+                                <div class="manage-products-img col-sm-12 mx-auto">
+                                    <a href="{{ form.instance.get_absolute_url }}">
+                                        <img src="{{ form.instance.image.url }}" alt="{{ form.name.value }}">
+                                    </a>
+                                    <div class="card-body text-center">
+                                        <a href="{{ form.instance.get_absolute_url }}"><h5>{{ form.instance.name }}</h5></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 mx-auto">
+                                <div class="form-row mb-2">
+                                    <label for="{{form.name.id_for_label}}" ><strong>Product Name</strong></label>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control"  name="{{ form.name.html_name }}" id="{{form.name.id_for_label}}" value="{{ form.name.value}}" required>
+                                        {% for error in form.name.errors %}
+                                            <p class="text-danger "><strong>{{ error }} </strong></p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+
+                                <div class="form-row mb-2">
+                                    <label for="{{form.price.id_for_label}}" ><strong>Product Price</strong></label>
+                                    <div class="col-sm-12">
+                                        <input type="number" class="form-control" name="{{ form.price.html_name }}" id="{{form.price.id_for_label}}" value="{{ form.price.value}}" required>
+                                        {% for error in form.price.errors %}
+                                            <p class="text-danger "><strong>{{ error }} </strong></p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+
+                                <div class="form-row mb-2">
+                                    <label for="{{form.stock.id_for_label}}" ><strong>Current Stock</strong></label>
+                                    <div class="col-sm-12">
+                                        <input type="number" class="form-control"  name="{{ form.stock.html_name }}" id="{{form.stock.id_for_label}}" value="{{ form.stock.value}}" required>
+                                        {% for error in form.stock.errors %}
+                                            <p class="text-danger "><strong>{{ error }} </strong></p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+
+                                <div class="form-row mb-2">
+                                    <label><strong>Available </strong></label>
+                                        {{ form.available }}
+                                    {% for error in form.available.errors %}
+                                        <p class="text-danger "><strong>{{ error }} </strong></p>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-sm-3 col-md-6 mx-auto">
+                                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Update</button>
+                                </div>
+                            {{ form.id }}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+
+        </form>
+    </div>
+{% endblock %}

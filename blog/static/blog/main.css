@@ -14,10 +14,32 @@ h1, h2, h3, h4, h5, h6 {
 ul {
   margin: 0;
 }
-
-
+.carousel-control-prev-icon-my{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("/media/icons/arrow.png") no-repeat 50% 50%;
+}
+.carousel-control-next-icon-my{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("/media/icons/arrow.png") no-repeat 50% 50%;
+}
+.manage-products-img {
+  display: block;
+  width: 200px;
+  height: auto;
+  margin: auto;
+}
+.manage-products-img img{
+  display: block;
+  width: 200px;
+  height: auto;
+  margin: auto;
+}
 .footer-fixed{
-  bottom: 40px;
+  bottom: 0;
   height: 35px;
   left: 0;
   position: absolute;
@@ -117,7 +139,7 @@ a.article-title:hover {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  width: calc((100% - 20px)/2);
+  width: 100%;
   height: 70px;
   border-radius: 10px;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,.2);
@@ -227,6 +249,8 @@ a.article-title:hover {
   width: auto;
 }
 
+
+
 @media screen and (max-width: 768px) {
   .product-img-div {
     height: 320px;
@@ -247,13 +271,12 @@ a.article-title:hover {
     max-width: 200px;
   }
 }
-@media (min-width: 900px){
+@media (min-width: 992px){
   #bootstrap-overrides .fixme{
-  z-index: 100;
-  flex: 0 0 16.666667%;
-  position: fixed;
-  top: 16%;
-  width: 16.666667%;
-  padding-right: 60px;
-}
+    z-index: 100;
+    position: fixed;
+    width: 16.666667%;
+    padding-right: 60px;
+    bottom: 340px;
+  }
 }

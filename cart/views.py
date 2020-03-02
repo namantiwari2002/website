@@ -3,66 +3,55 @@ from django.urls import reverse
 from .models import Cart, CartItem
 from blog.models import Product, Variation
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
+
+@login_required
 def cart_home(request):
-    try:
-        the_id = request.session['cart_id']
-        cart = Cart.objects.get(id=the_id)
-    except:
-        the_id = None
-    if the_id:
+    cart = Cart.objects.filter(user=request.user, active=True).first()
+    empty_message = "Your cart is Empty, please keep shopping."
+    if cart is not None:
         context = {"cart": cart, "empty": False}
         new_total = 0.00
-        for item in cart.cart_items.all():
+        for item in cart.cart_item.all():
             line_total = float(item.product.price) * item.quantity
             new_total += line_total
-        request.session['items_total'] = cart.cart_items.count()
         cart.total = new_total
+        request.session['items_total'] = cart.cart_item.count()
+        cart.qty = cart.cart_item.count()
         cart.save()
-        empty_message = "Your cart is Empty, please keep shopping."
         if cart.total == float(0):
             context = {"empty": True, "empty_message": empty_message}
-
     else:
-        empty_message = "Your cart is Empty, please keep shopping."
         context = {"empty": True, "empty_message": empty_message}
-
     template = 'cart/cart_home.html'
     return render(request, template, context)
 
 
+@login_required
 def remove_from_cart(request, id):
-    # try:
-    #     the_id = request.session['cart_id']
-    #     cart = Cart.objects.get(id=the_id)
-    # except:
-    #     return HttpResponseRedirect(reverse("cart"))
-
     cartitem = CartItem.objects.get(id=id)
     cartitem.delete()
-    # cartitem.cart = None
-    # cartitem.save()
-    #send success message
+    cart = cartitem.cart
+    cart.qty = cart.qty - 1
+    cart.save()
     messages.success(request, f'Product successfully removed')
     return HttpResponseRedirect(reverse("cart"))
 
 
+@login_required
 def add_to_cart(request, slug):
-    request.session.set_expiry(12000)
     try:
-        the_id = request.session['cart_id']
-        cart = Cart.objects.get(id=the_id)
+        cart = Cart.objects.filter(user=request.user, active=True).first()
     except:
-        new_cart = Cart()
-        new_cart.save()
-        request.session['cart_id'] = new_cart.id
-        the_id = new_cart.id
-        cart = Cart.objects.get(id=the_id)
+        pass
+    if cart is None:
+        print(1)
+        cart = Cart(user=request.user)
+        cart.save()
     try:
         product = Product.objects.get(slug=slug)
     except Product.DoesNotExist:
-        pass
-    except:
         pass
     product_var = [] # product variations
     if request.method == "POST":
@@ -87,6 +76,7 @@ def add_to_cart(request, slug):
                     cart_item.save()
                     break
         if not found:
+            print(cart)
             cart_item = CartItem.objects.create(cart=cart, product=product)
             if len(product_var) > 0:
                 cart_item.variations.add(*product_var)
@@ -99,10 +89,14 @@ def add_to_cart(request, slug):
     return HttpResponseRedirect(reverse("cart"))
 
 
+@login_required
 def decrease_by_one(request, id):
     cart_item = CartItem.objects.get(id=id)
     if cart_item.quantity == 1:
         cart_item.delete()
+        cart = cart_item.cart
+        cart.qty = cart.qty - 1
+        cart.save()
         messages.success(request, f'Product successfully removed')
     else:
         cart_item.quantity = cart_item.quantity - 1
@@ -111,6 +105,7 @@ def decrease_by_one(request, id):
     return redirect('cart')
 
 
+@login_required
 def increase_by_one(request, id):
     cart_item = CartItem.objects.get(id=id)
     cart_item.quantity = cart_item.quantity + 1
