@@ -3,9 +3,9 @@
 {% block content %}
     <br>
     <br>
-    <div class="col-sm-11 col-lg-10 col-md-10 mx-auto mb-4">
+    <div class="col-sm-10 col-lg-10 col-md-10 mx-auto mb-4">
         <div class="row">
-            <div class="col-lg-5 col-md-6 col-sm-10 mx-auto mb-4">
+            <div class="col-lg-5 col-md-6 col-sm-9 mx-auto mb-4">
                 <!--Carousel Wrapper-->
                 <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-interval="false">
                     <!--Slides-->
@@ -66,7 +66,7 @@
 
                 <h3 class="">{{ product.name }}</h3>
                 <br>
-                <h5 class=""><strong> Rs. {{ product.price }}</strong> </h5>
+                <h5 class=""><strong> <i class="fa fa-rupee-sign"></i> {{ product.price }}</strong> </h5>
                 <p class="">{{ product.description|safe|linebreaksbr }}</p>
                 <br>
                 <form class="form-signin" method='POST' action='{% url 'add_to_cart' product.slug %}'>
@@ -104,136 +104,5 @@
 
 
 
-    <br>
-    <br>
-    <div class="col-lg-10 col-sm-10 col-md-10 mx-auto">
-        <h3>Similar Products</h3>
-        <br>
-        <div id="carouselExampleIndicators" class="carousel slide" data-interval="false">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="row">
-                        <div class="col-sm-5 col-lg-2 col-md-4 mx-auto" style="width: 16rem">
-                            <img class="card-img-top"  src="{{ product.image.url }}" alt="{{ product.name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.name }}</h5>
-                                <h5 class="card-text"> <strong>{{ product.price }} </strong></h5>
-                                <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-5 col-lg-2 col-md-4 mx-auto" style="width: 16rem">
-                            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.name }}</h5>
-                                <h5 class="card-text"> <strong>{{ product.price }} </strong></h5>
-                                <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-5 col-lg-2 col-md-4 mx-auto" style="width: 16rem">
-                            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.name }}</h5>
-                                <h5 class="card-text"> <strong>{{ product.price }} </strong></h5>
-                                <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-5 col-lg-2 col-md-4 mx-auto" style="width: 16rem">
-                            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.name }}</h5>
-                                <h5 class="card-text"> <strong>{{ product.price }} </strong></h5>
-                                <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-sm-5 col-lg-2 col-md-4 mx-auto" style="width: 16rem">
-                            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.name }}</h5>
-                                <h5 class="card-text"> <strong>{{ product.price }} </strong></h5>
-                                <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-5 col-lg-2 col-md-4 mx-auto" style="width: 16rem">
-                            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.name }}</h5>
-                                <h5 class="card-text"> <strong>{{ product.price }} </strong></h5>
-                                <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-5 col-lg-2 col-md-4 mx-auto" style="width: 16rem">
-                            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.name }}</h5>
-                                <h5 class="card-text"> <strong>{{ product.price }} </strong></h5>
-                                <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-5 col-lg-2 col-md-4 mx-auto" style="width: 16rem">
-                            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.name }}</h5>
-                                <h5 class="card-text"> <strong>{{ product.price }} </strong></h5>
-                                <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-sm-5 col-lg-2 col-md-4 mx-auto" style="width: 16rem">
-                            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.name }}</h5>
-                                <h5 class="card-text"> <strong>{{ product.price }} </strong></h5>
-                                <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-5 col-lg-2 col-md-4 mx-auto" style="width: 16rem">
-                            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.name }}</h5>
-                                <h5 class="card-text"> <strong>{{ product.price }} </strong></h5>
-                                <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-5 col-lg-2 col-md-4 mx-auto" style="width: 16rem">
-                            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.name }}</h5>
-                                <h5 class="card-text"> <strong>{{ product.price }} </strong></h5>
-                                <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-5 col-lg-2 col-md-4 mx-auto" style="width: 16rem">
-                            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.name }}</h5>
-                                <h5 class="card-text"> <strong>{{ product.price }} </strong></h5>
-                                <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev"  style="background-color: blue" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
-    <!--/.Carousel Wrapper-->
+
 {% endblock %}

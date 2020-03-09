@@ -1,54 +1,63 @@
 {% extends "blog/base.html" %}
 {% load static %}
 {% load tz %}
-
-
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 {% block content %}
-        {% if latest_question_list %}
-            <ul>
-                <h1>Department-wise Poll</h1>
-                {% for question in latest_question_list %}
-
-
-                     {% if question.department == user.profile.department %}
-                        <div>
-
-                             <div class="container">
-
-                                 <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-                            <div class="content-section">
-                              <div class="media">
-                                <img class="rounded-circle account-img" src="{{ question.image.url }}">
-
-                              </div>
+    {% if latest_question_list %}
+        <h1 class="text-center mb-4">Department-wise Poll</h1>
+        <div class="container">
+        <div class="row">
+            {% for question in latest_question_list %}
+                {% if question.department == user.profile.department %}
+                    <div class="col-lg-4 col-md-5 col-sm-10 mx-auto">
+                        <div class="card shadow-sm mb-3">
+                            <div class="col-sm-12">
+                                <img class="img-fluid" src="{{ question.image.url }}" alt="{{ question.question_text }}">
+                            </div>
+                            <hr>
+                            <div class="card-body text-dark">
+                                <h5 class="text-center"><strong>{{ question.question_text }}</strong></h5>
+                                <p class="text-center">Click<a href="{% url 'polls:vote' question.id %}"> <strong>here </strong></a>to vote</p>
+                                <p class="text-center"> Vote Distribution</p>
+                                {% for choice in question.choice_set.all %}
+                                    <div  class="col-sm-10 mx-auto text-center" >
+                                        <h6 class="" >{{ choice.choice_text }}: <strong>{{ choice.votes}}</strong> </h6>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
-                        </div>
-
+                    </div>
                 {% endif %}
-                 {% endfor %}
-                <h1>Club-wise Poll</h1>
-                   {% for question in latest_question_list %}
-
-                       {% if question.club == user.profile.club %}
-                           <div class="container">
-
-                                     <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-                                <div class="content-section">
-                                  <div class="media">
-                                    <img class="rounded-circle account-img" src="{{ question.image.url }}">
-
-                                  </div>
-                                </div>
+            {% endfor %}
+        </div>
+        <br>
+        <br>
+        <h1 class="text-center mb-4">Club-wise Poll</h1>
+        <div class="row">
+            {% for question in latest_question_list %}
+                {% if question.club == user.profile.club %}
+                    <div class="col-lg-4 col-md-5 col-sm-10 mx-auto">
+                        <div class="card shadow-sm mb-3">
+                            <div class="col-sm-12">
+                                <img class="img-fluid" src="{{ question.image.url }}" alt="{{ question.question_text }}">
                             </div>
+                            <hr>
+                            <div class="card-body text-dark">
+                                <h5 class="text-center"><strong>{{ question.question_text }}</strong></h5>
+                                <p class="text-center">Click<a href="{% url 'polls:vote' question.id %}"> <strong>here </strong></a>to vote</p>
+                                <p class="text-center"> Vote Distribution</p>
+                                {% for choice in question.choice_set.all %}
+                                    <div  class="col-sm-10 mx-auto text-center" >
+                                        <h6 class="" >{{ choice.choice_text }}: <strong>{{ choice.votes}}</strong> </h6>
+                                    </div>
+                                {% endfor %}
                             </div>
-
-   {% endif %}
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No polls are available.</p>
-        {% endif %}
-
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+</div>
 {% endblock %}

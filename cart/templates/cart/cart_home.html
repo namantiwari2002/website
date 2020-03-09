@@ -1,52 +1,70 @@
 {% extends "blog/base.html" %}
 {% block content %}
-<br>
-    {% if empty %}
-    <h1 style="text-align:center"> {{ empty_message }}</h1>
-    {% else %}
-         <div class="row">
-        <div class="col-sm-2"></div>
-    <div class="col-sm-8 col-sm-offset-2" style="border:1px solid black;border-radius: 5px;box-shadow: 5px 10px #888888" >
-    <h1 style="text-align:center;color: #702963 " >Your Cart</h1>
     <br>
-        <table class="table"  border=1 frame=void rules=rows style="border-bottom:3px solid #333333;">
-            <thead style="border-bottom:3px solid #333333">
-                <th>Item</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th></th>
-                <th></th>
-            </thead>
-            <tfoot>
-                <tr>
-                    <td > <a class= "button" href='{% url "checkout" %}'> Checkout</a></td>
-                    <td></td>
-                    <td></td>
-                    <td> Total : {{ cart.total }}</td>
-                </tr>
-            </tfoot>
-    {% for item in cart.cart_item.all %}
-        <tr><td> {{ item.product }}
-                {% if item.variations.all %}
-                    <ul>
-                        {% for subitem in item.variations.all %}
-                            <li style="color: deeppink">{{ subitem.category|capfirst }} : {{ subitem.title|capfirst }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </td>
+    {% if empty %}
+        <h1 style="text-align:center"> {{ empty_message }}</h1>
+    {% else %}
+        <h1 style="text-align:center;color: #702963 " >Your Cart</h1>
+        <br>
+        <div class="my-row">
+            <div class="col-xl-8 col-lg-9 col-md-8 col-sm-12 mb-5 border-right">
+                {% for item in cart.cart_item.all %}
+                    <div class="card py-3 px-3 mb-2">
+                        <div class="row">
+                            <div class="col-sm-5 col-md-4 col-lg-4 mx-auto">
+                                <a class="text-body" href="{{ item.product.get_absolute_url }}">
+                                    <img class="card-img-top " src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                </a>
+                            </div>
+                            <div class="col-sm-3 col-md-4 col-lg-4 text-my mx-auto">
+                                <br>
+                                <a class="text-body" href="{{ item.product.get_absolute_url }}">
+                                    <h3 class="">{{ item.product.name }}</h3>
+                                </a>
+                                <p class="">{{ item.product.description }}</p>
+                                {% if item.variations.all %}
+                                    {% for subitem in item.variations.all %}
+                                        <div><strong>{{ subitem.category|capfirst }}</strong> : {{ subitem.title|capfirst }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                                <br>
+                                <a  class="text-color-icon" href='{% url "decrease_by_one" item.id %}'><i class="fa fa-minus mr-2"></i></a>{{ item.quantity }}
+                                <a  class="text-color-icon" href='{% url "increase_by_one" item.id %}'> <i class="fa fa-plus ml-2"></i></a>
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <br>
+                                <h5 class="text-align-right"> <i class="fa fa-rupee-sign"></i> {{ item.product.price }}</h5>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="col-sm-4 col-md-4 col-lg-4 text-center">
+                            <strong><a class=" text-center" style="color: red" href='{% url "remove_from_cart" item.id %}'> REMOVE </a></strong>
+                        </div>
+                    </div>
+                {% endfor %}
 
-            <td>{{ item.product.price }}</td>
-            <td><a  href='{% url "decrease_by_one" item.id %}'> <i class="fa fa-minus mr-2"></i></a>{{ item.quantity }}<a  href='{% url "increase_by_one" item.id %}'> <i class="fa fa-plus ml-2"></i></a></td>
-            <td><a href='{% url "remove_from_cart" item.id %}'> Remove </a></td>
-        </tr>
-    {% endfor %}
-    </table>
+            </div>
+            <div class="col-xl-4 col-lg-3 col-md-4 col-sm-12">
+                <h6><strong>PRICE DETAILS</strong></h6>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12"> <p class="float-left">Bag Total </p> <p class="float-right"><i class="fa fa-rupee-sign"></i> {{ cart.total }}</p></div>
+                    <div class="col-sm-12"> <p class="float-left">Bag Discount</p> <p class="float-right"><i class="fa fa-rupee-sign"></i> 0.00</p></div>
+                    <div class="col-sm-12"> <p class="float-left">Delivery Charges</p> <p class="float-right"><i class="fa fa-rupee-sign"></i> 0.00</p></div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12"> <h6 class="float-left"><strong>Total</strong></h6> <p class="float-right"><i class="fa fa-rupee-sign"></i> {{ cart.total }}</p></div>
+                </div>
+
+            </div>
+
+        </div>
+        <br>
+        <div class="col-sm-4 mx-auto">
 
 
-
-    </div>
-         </div>
+            <a class="btn btn-block btn-info btn-rounded text-uppercase" href="{% url 'checkout' %}"><h4 class="mt-2" style="color: white"><strong>Checkout</strong></h4></a>
+        </div>
     {% endif %}
-
 {% endblock %}

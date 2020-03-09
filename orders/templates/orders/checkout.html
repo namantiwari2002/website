@@ -1,34 +1,69 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <br>
-    <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8" style="border">
-   <form action="{% url 'checkout' %}" method="post" >
-   <h4>Choose Address For delivery</h4>
-    {% csrf_token %}
-           {% for address in user.addresses.all %}
-               <input type="radio" name="address" value="{{ address.id }}">
-                    <div class="col-md-7 " id ="wrapper" >
-                    <p> {{ address.name }}<br>
-                     {{ address.house_no }} , {{ address.area }} <br>
-                    {% if address.landmark %}
-                        {{address.landmark }}<br>
-                    {% endif %}
-                        {{ address.city }}<br>
-                    {{ address.state }} - {{ address.zip }}<br>
-                    Phone-Number: {{ address.mobile_no }} {% if address.alternate_no %} , {{ address.alternate_no }}{% endif %}
-                    <br>
-                        <a href="{% url 'edit_address' address.id %}">Edit address</a><br>
-                    <a href = "{% url 'remove_address' address.id %}"> Remove address </a>
+    <form class="" action="{% url 'checkout' %}" method="post" >
+        <br>
+        <div class="my-row">
+            <div class="col-xl-8 col-lg-9 col-md-8 col-sm-12 mb-5 border-right">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 mx-auto text-left-then-middle">
+                        <strong>Select Delivery Address</strong>
                     </div>
-           {% endfor %}
-    <br><br>
-    <button class="btn"> <a href="{% url 'new_address' %}"> Another address</a></button>
-    <input type="submit" value="Pay">
+                    <div class="col-md-6 col-sm-12 mx-auto text-right-then-middle">
+                        <a class="text-body  btn btn-rounded border border-dark text-right-then-middle"  href="{% url 'new_address' %}">ADD NEW ADDRESS</a>
+                    </div>
+                </div>
+                <br>
+                {% for address in user.addresses.all %}
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <input class="mr-3" style="color: #ff3f6c" type="radio" name="address" value="{{ address.id }}">
+                                <strong>{{ address.name }}</strong>
+                            </h5>
+                            <div class="col-sm-11 mx-auto">
+                                <p class="card-text mb-0">{{ address.house_no }} , {{ address.area }}
+                                    {% if address.landmark %}
+                                        {{address.landmark }}
+                                    {% endif %}
+                                </p>
+                                <p class="mt-0"> {{ address.city }}, {{ address.state }} - {{ address.zip }} </p>
+                                <p> Mobile: <strong>{{ address.mobile_no }} {% if address.alternate_no %} , {{ address.alternate_no }}{% endif %} </strong></p>
+                                <a class=" btn border border-dark mr-4 btn-rounded"  href="{% url 'edit_address' address.id %}">EDIT</a>
+                                <a  class=" btn border border-dark btn-rounded" href = "{% url 'remove_address' address.id %}"> REMOVE  </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <br><br>
+                <a  class="text-body"  href="{% url 'new_address' %}">
+                    <div class="card mb-2" style="border-style: dotted">
+                        <div class="card-body" style="color: #ff3f6c">
+                            <i class="fa fa-plus mr-2" ></i><strong> Add New address</strong>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xl-4 col-lg-3 col-md-4 col-sm-12">
+                <h6><strong>PRICE DETAILS</strong></h6>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12"> <p class="float-left">Bag Total </p> <p class="float-right"><i class="fa fa-rupee-sign"></i> {{ cart.total }}</p></div>
+                    <div class="col-sm-12"> <p class="float-left">Bag Discount</p> <p class="float-right"><i class="fa fa-rupee-sign"></i> 0.00</p></div>
+                    <div class="col-sm-12"> <p class="float-left">Delivery Charges</p> <p class="float-right"><i class="fa fa-rupee-sign"></i> 0.00</p></div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h6 class="float-left"><strong>Total</strong></h6>
+                        <p class="float-right"><i class="fa fa-rupee-sign"></i><strong> {{ cart.total }}</strong></p>
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-12 mx-auto text-center"><input class="btn  btn-lg btn-primary btn-rounded" type="submit" value="PAY" required></div>
+            </div>
+        </div>
+        <br>
     </form>
-    </div>
-    </div>
-
 {% endblock %}

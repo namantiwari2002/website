@@ -41,15 +41,14 @@ def checkout(request):
     new_order.total = float(new_order.shipping_total) + float(cart.total)
     new_order.save()
     if new_order.status == "Finished":
-        # cart.delete()
-        del request.session['cart_id']
+        cart.active = False
         del request.session['items_total']
         return HttpResponseRedirect(reverse("cart"))
     if not request.user.addresses.all():
         return redirect('new_address')
-
     context = {
         'user': request.user,
+        'cart': cart,
     }
     template = "orders/checkout.html"
     return render(request, template, context)
