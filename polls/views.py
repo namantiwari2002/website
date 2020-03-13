@@ -39,7 +39,6 @@ def vote(request, question_id):
     else:
         if Voter.objects.filter(question_id=question_id, user_id=request.user.id).exists():
             question = get_object_or_404(Question, pk=question_id)
-            print("yippe")
             return render(request, 'polls/detail.html', {
                 'question': question,
                 'error_message': "You have already voted."

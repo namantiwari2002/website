@@ -250,7 +250,15 @@ a.article-title:hover {
   height: auto;
   width: auto;
 }
-
+#bootstrap-overrides .li-bg-color{
+  background-color: #666;
+  padding-top: 1%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+#bootstrap-overrides .active{
+  background-color: #666;
+}
 .container-radio {
   display: block;
   position: relative;

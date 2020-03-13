@@ -1,6 +1,4 @@
 {% extends "blog/base.html" %}
-{% load static %}
-{% load tz %}
 {% block content %}
     {% if latest_question_list %}
         <h1 class="text-center mb-4">Department-wise Poll</h1>
@@ -47,7 +45,7 @@
                                 <p class="text-center"> Vote Distribution</p>
                                 {% for choice in question.choice_set.all %}
                                     <div  class="col-sm-10 mx-auto text-center" >
-                                        <h6 class="" >{{ choice.choice_text }}: <strong>{{ choice.votes}}</strong> </h6>
+                                        <h6 class="" >{{ choice.choice_text|capfirst }}: <strong>{{ choice.votes}}</strong> </h6>
                                     </div>
                                 {% endfor %}
                             </div>

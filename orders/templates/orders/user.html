@@ -1,48 +1,66 @@
 {% extends "blog/base.html" %}
 {% block content %}
-
     <br>
     {% if empty %}
         <div class="col-sm-8 mx-auto mb-5"><h2 class="text-center"> {{ empty_message }}</h2></div>
         <div class="col-sm-8 mx-auto text-center text-body"><h5> <a href="{% url 'blog:product-home' %}">Continue Shopping</a></h5></div>
     {% else %}
-        {% for cart in cart_list %}
-            {% for order in cart.order_cart.all %}
-                <div class="col-sm-8 col-sm-offset-2">
-                    <table class="table">
-                        <thead>
-                        <th>Item</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th></th>
-                        </thead>
-                        <tfoot>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td> Total Cost : {{ order.cart.total }} <br> Shipping Cost : {{ order.shipping_total }} <br> Total : {{ order.total }}</td>
-                        </tr>
-                        </tfoot>
-                        {% for item in order.cart.cart_item.all %}
-                            <tr><td> {{ item.product }}
-                                {% if item.variations.all %}
-                                    <ul>
-                                        {% for subitem in item.variations.all %}
-                                            <li>{{ subitem.category|capfirst }} : {{ subitem.title|capfirst }}</li>
-                                        {% endfor %}
-                                    </ul>
-                                {% endif %}
-                            </td>
+        <div class="container">
+            {% for cart in cart_list %}
+                <div class="card shadow mb-4 pt-4">
+                    <div class="my-row">
+                        <div class="col-xl-8 col-lg-9 col-md-8 col-sm-12 mb-5 border-right">
+                            {% for item in cart.cart_item.all %}
+                                <div class="card py-3 px-3 mb-2">
+                                    <div class="row">
+                                        <div class="col-sm-5 col-md-4 col-lg-4 mx-auto">
+                                            <a class="text-body" href="{{ item.product.get_absolute_url }}">
+                                                <img class="card-img-top " src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-3 col-md-4 col-lg-4 text-my mx-auto">
+                                            <br>
+                                            <a class="text-body" href="{{ item.product.get_absolute_url }}">
+                                                <h3 class="">{{ item.product.name }}</h3>
+                                            </a>
+                                            <p class="">{{ item.product.description }}</p>
+                                            {% if item.variations.all %}
+                                                {% for subitem in item.variations.all %}
+                                                    <div><strong>{{ subitem.category|capfirst }}</strong> : {{ subitem.title|capfirst }}</div>
+                                                {% endfor %}
+                                            {% endif %}
+                                           <div> Qty : {{ item.quantity }}</div>
 
-                                <td>{{ item.product.price }}</td>
-                                <td>{{ item.quantity }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
+                                        </div>
+                                        <div class="col-sm-4 col-md-4 col-lg-4">
+                                            <br>
+                                            <h5 class="text-align-right"> <i class="fa fa-rupee-sign"></i> {{ item.product.price }}</h5>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="col-sm-4 col-md-4 col-lg-4 text-center">
+                                        <strong><a class=" text-center" style="color: red" href='{% url "remove_from_cart" item.id %}'> REMOVE </a></strong>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="col-xl-4 col-lg-3 col-md-4 col-sm-12">
+                            <h6><strong>ORDER DETAILS</strong></h6>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12"> <p class="float-left">Bag Total </p> <p class="float-right"><i class="fa fa-rupee-sign"></i> {{ cart.total }}</p></div>
+                                <div class="col-sm-12"> <p class="float-left">Bag Discount</p> <p class="float-right"><i class="fa fa-rupee-sign"></i> 0.00</p></div>
+                                <div class="col-sm-12"> <p class="float-left">Delivery Charges</p> <p class="float-right"><i class="fa fa-rupee-sign"></i> 0.00</p></div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12"> <h6 class="float-left"><strong>Total</strong></h6> <p class="float-right"><i class="fa fa-rupee-sign"></i> {{ cart.total }}</p></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             {% endfor %}
-        {% endfor %}
+            </div>
     {% endif %}
-
 {% endblock %}

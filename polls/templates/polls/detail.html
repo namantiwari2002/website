@@ -5,7 +5,7 @@
     <br>
     <div class="col-sm-10 col-lg-10 col-md-10 mx-auto mb-4">
         <div class="row">
-            <div class="col-lg-5 col-md-6 col-sm-9 mx-auto mb-4">
+            <div class="col-lg-4 col-md-6 col-sm-9 mx-auto mb-4">
                 <!--Carousel Wrapper-->
                 <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-interval="false">
                     <!--Slides-->
@@ -31,31 +31,31 @@
                     </div>
                     <!--/.Slides-->
                     <!--Controls-->
-                    <a class="carousel-control-prev" href="#carousel-thumb" role="button" data-slide="prev">
+                    <a class="carousel-control-prev py-2" style="background-color: #ff3f6c; left: 30%; top: auto; bottom: -12%" href="#carousel-thumb" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carousel-thumb" role="button" data-slide="next">
+                    <a class="carousel-control-next py-2"  style="background-color: #ff3f6c;right: 30%; top: auto; bottom: -12%" href="#carousel-thumb" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
                     <!--/.Controls-->
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-thumb" data-slide-to="0" class="active">
+                    <ol class="carousel-indicators mb-0 mt-0" style="bottom: -5%">
+                        <li data-target="#carousel-thumb" data-slide-to="0" class="active li-bg-color">
                             <img src="{{ question.image.url }}" width="100" alt="default-img">
                         </li>
                         {% if product.image1 %}
-                            <li data-target="#carousel-thumb" data-slide-to="1">
+                            <li data-target="#carousel-thumb" data-slide-to="1" class="li-bg-color">
                                 <img src="{{ question.rear.url }}" width="100" alt="image1">
                             </li>
                         {% endif %}
                         {% if product.image2 %}
-                            <li data-target="#carousel-thumb" data-slide-to="2">
+                            <li data-target="#carousel-thumb" data-slide-to="2" class="li-bg-color">
                                 <img src="{{ question.left.url }}" width="100" alt="image2">
                             </li>
                         {% endif %}
                         {% if product.image3 %}
-                            <li data-target="#carousel-thumb" data-slide-to="2">
+                            <li data-target="#carousel-thumb" data-slide-to="2" class="li-bg-color">
                                 <img src="{{ question.right.url  }}" width="100" alt="image3">
                             </li>
                         {% endif %}
@@ -67,7 +67,6 @@
 
                 <h3 class="">{{ question.question_text }}</h3>
                 {#        <p class="">{{ product.description|safe|linebreaksbr }}</p>#}
-
                 {% if error_message %}
                     <p class="py-4"><strong>{{ error_message }}</strong></p>
                     <a href="{% url 'polls:index'  %}">Go Back To Poll</a>
@@ -77,7 +76,7 @@
                         <div class="row">
                             {% for choice in question.choice_set.all %}
                                 <div class="col-sm-5 mx-auto">
-                                    <label  class="container-radio" for="choice{{ forloop.counter }}">{{ choice.choice_text }}
+                                    <label  class="container-radio" for="choice{{ forloop.counter }}">{{ choice.choice_text|capfirst }}
                                         <input checked="checked" type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
                                         <span class="checkmark"></span>
                                     </label>
@@ -85,10 +84,11 @@
                             {% endfor %}
                             <input class="btn btn-lg btn-primary" type="submit" value="Vote">
                         </div>
-
                     </form>
-                    </div>
                 {% endif %}
+            </div>
+
         </div>
     </div>
+
 {% endblock %}
