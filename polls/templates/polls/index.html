@@ -1,8 +1,35 @@
 {% extends "blog/base.html" %}
 {% block content %}
+ <div class="col-lg-8 col-sm-10 col-md-10 mx-auto">
     {% if latest_question_list %}
-        <h1 class="text-center mb-4">Department-wise Poll</h1>
-        <div class="container">
+         <h2 class="text-center mb-4">General Poll</h2>
+        <div class="row">
+            {% for question in latest_question_list %}
+                {% if question.general == True %}
+                    <div class="col-lg-4 col-md-5 col-sm-10 mx-auto">
+                        <div class="card shadow-sm mb-3">
+                            <div class="col-sm-12">
+                                <img class="img-fluid" src="{{ question.image.url }}" alt="{{ question.question_text }}">
+                            </div>
+
+                            <div class="card-body text-dark">
+                                <h5 class="text-center"><strong>{{ question.question_text }}</strong></h5>
+                                <p class="text-center">Click<a href="{% url 'polls:vote' question.id %}"> <strong>here </strong></a>to vote</p>
+                                <p class="text-center mb-2"> Vote Distribution</p>
+                                {% for choice in question.choice_set.all %}
+                                    <div  class="col-sm-10 mx-auto text-center" >
+                                        <h6 class="" >{{ choice.choice_text|capfirst }}: <strong>{{ choice.votes}}</strong> </h6>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <h2 class="text-center mb-4">Department-wise Poll</h2>
+
         <div class="row">
             {% for question in latest_question_list %}
                 {% if question.department == user.profile.department %}
@@ -11,11 +38,11 @@
                             <div class="col-sm-12">
                                 <img class="img-fluid" src="{{ question.image.url }}" alt="{{ question.question_text }}">
                             </div>
-                            <hr>
+
                             <div class="card-body text-dark">
                                 <h5 class="text-center"><strong>{{ question.question_text }}</strong></h5>
                                 <p class="text-center">Click<a href="{% url 'polls:vote' question.id %}"> <strong>here </strong></a>to vote</p>
-                                <p class="text-center"> Vote Distribution</p>
+                                <p class="text-center mb-2"> Vote Distribution</p>
                                 {% for choice in question.choice_set.all %}
                                     <div  class="col-sm-10 mx-auto text-center" >
                                         <h6 class="" >{{ choice.choice_text }}: <strong>{{ choice.votes}}</strong> </h6>
@@ -38,11 +65,11 @@
                             <div class="col-sm-12">
                                 <img class="img-fluid" src="{{ question.image.url }}" alt="{{ question.question_text }}">
                             </div>
-                            <hr>
+
                             <div class="card-body text-dark">
                                 <h5 class="text-center"><strong>{{ question.question_text }}</strong></h5>
                                 <p class="text-center">Click<a href="{% url 'polls:vote' question.id %}"> <strong>here </strong></a>to vote</p>
-                                <p class="text-center"> Vote Distribution</p>
+                                <p class="text-center mb-2"> Vote Distribution</p>
                                 {% for choice in question.choice_set.all %}
                                     <div  class="col-sm-10 mx-auto text-center" >
                                         <h6 class="" >{{ choice.choice_text|capfirst }}: <strong>{{ choice.votes}}</strong> </h6>
@@ -54,8 +81,31 @@
                 {% endif %}
             {% endfor %}
         </div>
-    {% else %}
-        <p>No polls are available.</p>
+
+
     {% endif %}
 </div>
+    <style>
+
+.col-sm-12{
+            padding: 0;
+        }
+    @media (max-width: 576px){
+      #bootstrap-overrides h6{
+           font-size: 16px;
+       }
+        p{
+           margin-bottom: 0;
+       }
+        .col-sm-10{
+            flex: 0 0 80%;
+            max-width: 80%;
+        }
+
+        #bootstrap-overrides .card-body{
+    padding: 1%;
+  }
+    }
+    </style>
+
 {% endblock %}

@@ -9,45 +9,49 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/ec3df03138.js" crossorigin="anonymous"></script>
     {% if title %}
-        <title> WEBSITE {{ title }} </title>
+        <title> T-Time {{ title }} </title>
     {% else %}
-        <title> WEBSITE </title>
+        <title> T-Time </title>
     {% endif %}
 </head>
-<body id="bootstrap-overrides" style="margin-top: 0; background: #fff; font-family: 'Whitney','Helvetica' ,'Arial', sans-serif">
+<body id="bootstrap-overrides" style="margin-top: 0; background: #fff; font-family: 'Roboto', 'Whitney','Helvetica' ,'Arial', sans-serif">
 <header class="site-header">
-    <header style="background-color:#616D7E">
+    <header style="background-color:#FFFFFF">
         <nav class=" navbar navbar-expand-lg navbar-light ">
             <img src="https://www.iitg.ac.in/stud/gymkhana/technical/assets/img/resources/codingclubLogo.png" width="60px" height="60px" alt="Coding Club">
             <div class="container">
-                <a style="color: #FFFFFF" class="navbar-brand mr-4" href="{% url 'blog:product-home' %}">WEBSITE </a>
+                <a  style="color: #ff3f6c" onMouseOver="this.style.color='#007bff'" onMouseOut="this.style.color='#ff3f6c'" class="navbar-brand mr-4" href="{% url 'blog:product-home' %}"><strong>Home</strong> </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggle">
                 {% if user.is_authenticated or user.is_merchant == 1 %}
                     <div class="navbar-nav mr-auto">
-                        <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'polls:index' %}">Polling</a>
+                        <a  style="color: #ff3f6c" onMouseOver="this.style.color='#007bff'" onMouseOut="this.style.color='#ff3f6c'" class="nav-item nav-link text-center" href="{% url 'polls:index' %}">Polling</a>
                     </div>
                 {% endif %}
+
                     <form class="form-inline ml-auto my-2 my-lg-0" action='/s/'>
                         <input class="form-control mr-sm-2" type="search" name='q' placeholder="Search" aria-label="Search" >
-                        <button style="color: white" class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                        <button style="border-color: #ff3f6c; color: #ff3f6c" class="btn btn-outline-light my-2 my-sm-0 mx-auto text-center" onMouseOver="this.style.borderColor='green'" onMouseOut="this.style.borderColor='#ff3f6c'" type="submit">Search</button>
                     </form>
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
+                                                            <a style="color: #ff3f6c" onMouseOver="this.style.color='#007bff'" onMouseOut="this.style.color='#ff3f6c'" class="nav-item nav-link text-center" href="https://forms.gle/vyuqSar69Fa8eBs86"><strong>Submit Your Design</strong></a>
+
                         {% if user.is_authenticated %}
                             {% if user.profile.is_merchant == 1 %}
-                                <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'blog:manageproducts' %}">Manage Products</a>
+                                <a style="color: #ff3f6c" onMouseOver="this.style.color='#007bff'" onMouseOut="this.style.color='#ff3f6c'" class="nav-item nav-link text-center" href="{% url 'blog:manageproducts' %}">Manage Products</a>
                             {% endif %}
-                            <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-                            <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
-                            <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'orders' %}">Orders</a>
+
+                            <a style="color: #ff3f6c" onMouseOver="this.style.color='#007bff'" onMouseOut="this.style.color='#ff3f6c'" class="nav-item nav-link text-center" href="{% url 'profile' %}">Profile</a>
+                            <a style="color: #ff3f6c" onMouseOver="this.style.color='#007bff'" onMouseOut="this.style.color='#ff3f6c'" class="nav-item nav-link text-center" href="{% url 'logout' %}">Logout</a>
+                            <a style="color: #ff3f6c" onMouseOver="this.style.color='#007bff'" onMouseOut="this.style.color='#ff3f6c'" class="nav-item nav-link text-center" href="{% url 'orders' %}">Orders</a>
                         {% else %}
-                            <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                            <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'"class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                            <a style="color: #ff3f6c" onMouseOver="this.style.color='#007bff'" onMouseOut="this.style.color='#ff3f6c'" class="nav-item nav-link text-center" href="{% url 'login' %}">Login</a>
+                            <a style="color: #ff3f6c" onMouseOver="this.style.color='#007bff'" onMouseOut="this.style.color='#ff3f6c'" class="nav-item nav-link text-center" href="{% url 'register' %}">Register</a>
                         {% endif %}
-                        <a style="color: #FFFFFF" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='#FFFFFF'" class="nav-item nav-link" href="{% url 'cart' %}">Cart  <span class="badge">{{ request.session.items_total }}</span></a>
+                        <a style="color: #ff3f6c" onMouseOver="this.style.color='#007bff'" onMouseOut="this.style.color='#ff3f6c'" class="nav-item nav-link text-center" href="{% url 'cart' %}">Cart  <span class="badge">{{ request.session.items_total }}</span></a>
                     </div>
                 </div>
             </div>
@@ -94,18 +98,13 @@
                 <!-- Links -->
                 <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
                 <ul class="list-unstyled">
-                    <li>
-                        <a href="#">Link 1</a>
+                     <li>
+                        <a style="color: dodgerblue" target="_blank" href="https://www.iitg.ac.in/">IITG</a>
                     </li>
                     <li>
-                        <a href="#">Link 2</a>
+                        <a style="color: dodgerblue"  target="_blank" href="https://www.iitg.ac.in/stud/gymkhana/technical/home/CodingHome.html">Coding Club IITG</a>
                     </li>
-                    <li>
-                        <a href="#">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#">Link 4</a>
-                    </li>
+
                 </ul>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-11 mx-auto">

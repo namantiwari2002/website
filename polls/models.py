@@ -56,7 +56,8 @@ class Question(models.Model):
     image = models.ImageField( default='default.jpg', upload_to='images/')
     pub_date = models.DateTimeField(auto_now_add=True)
     status = models.BooleanField(default=True)
-
+    image1 = models.ImageField(upload_to='images/',blank=True,null=True )
+    general = models.BooleanField(default=False)
 
 
     def __str__(self):
@@ -78,6 +79,15 @@ class Question(models.Model):
             img.thumbnail(output_size)
             img.save(self.image.path)
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        img = Image.open(self.image1.path)
+
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.image1.path)
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)

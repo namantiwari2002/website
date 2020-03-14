@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47eae268-2a4d-4aa5-bb8e-1d54570162cf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-    </list>
+    <list default="true" id="47eae268-2a4d-4aa5-bb8e-1d54570162cf" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,8 +216,9 @@
       <workItem from="1583769731723" duration="23186000" />
       <workItem from="1583839920367" duration="6151000" />
       <workItem from="1583935968613" duration="1497000" />
-      <workItem from="1584090909307" duration="5015000" />
-      <workItem from="1584124729035" duration="43000" />
+      <workItem from="1584124304532" duration="12836000" />
+      <workItem from="1584159885298" duration="94000" />
+      <workItem from="1584159995623" duration="20000" />
     </task>
     <servers />
   </component>

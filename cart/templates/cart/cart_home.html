@@ -2,7 +2,8 @@
 {% block content %}
     <br>
     {% if empty %}
-        <h1 style="text-align:center"> {{ empty_message }}</h1>
+        <div class="col-sm-10 mx-auto mb-4"><h2 class="text-center"> {{ empty_message }}</h2></div>
+        <div class="col-sm-8 mx-auto text-center text-body"><h5> <a href="{% url 'blog:product-home' %}">Continue Shopping</a></h5></div>
     {% else %}
         <h1 style="text-align:center;color: #702963 " >Your Cart</h1>
         <br>
@@ -16,24 +17,24 @@
                                     <img class="card-img-top " src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
                                 </a>
                             </div>
-                            <div class="col-sm-3 col-md-4 col-lg-4 text-my mx-auto">
+                            <div class="col-sm-6 text-center col-md-4 col-lg-4 text-my mx-auto">
                                 <br>
                                 <a class="text-body" href="{{ item.product.get_absolute_url }}">
                                     <h3 class="">{{ item.product.name }}</h3>
                                 </a>
-                                <p class="">{{ item.product.description }}</p>
+{#                                <p class="">{{ item.product.description }}</p>#}
                                 {% if item.variations.all %}
                                     {% for subitem in item.variations.all %}
                                         <div><strong>{{ subitem.category|capfirst }}</strong> : {{ subitem.title|capfirst }}</div>
                                     {% endfor %}
                                 {% endif %}
                                 <br>
-                                <a  class="text-color-icon" href='{% url "decrease_by_one" item.id %}'><i class="fa fa-minus mr-2"></i></a>{{ item.quantity }}
+                                <a  class="text-color-icon text-center mx-auto" href='{% url "decrease_by_one" item.id %}'><i class="fa fa-minus mr-2"></i></a>{{ item.quantity }}
                                 <a  class="text-color-icon" href='{% url "increase_by_one" item.id %}'> <i class="fa fa-plus ml-2"></i></a>
                             </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4">
+                            <div class="col-sm-4 col-md-4 col-lg-4  text-center mx-auto">
                                 <br>
-                                <h5 class="text-align-right"> <i class="fa fa-rupee-sign"></i> {{ item.product.price }}</h5>
+                                <h5 class="text-align-right text-center"> <i class="fa fa-rupee-sign"></i> {{ item.product.price }}</h5>
                             </div>
                         </div>
                         <hr>
@@ -67,4 +68,34 @@
             <a class="btn btn-block btn-rounded text-uppercase" style="background-color: #ff3f6c" href="{% url 'checkout' %}"><h4 class="mt-2" style="color: white"><strong>Checkout</strong></h4></a>
         </div>
     {% endif %}
+    <style>
+    @media (max-width: 576px) {
+        .col-sm-5{
+            margin-left: auto;
+            margin-right: auto;
+            flex: 0 0 41.667%;
+            max-width: 41.667%;
+        }
+        .col-sm-3{
+             margin-left: auto;
+            margin-right: auto;
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+        .col-sm-4{
+             margin-left: auto;
+            margin-right: auto;
+            flex: 0 0 33.33%;
+            max-width: 33.33%;
+        }
+        #bootstrap-overrides h3{
+            font-size: 16px;
+        }
+        #bootstrap-overrides h6{
+            font-size: 1rem;
+        }
+
+    }
+
+    </style>
 {% endblock %}

@@ -70,7 +70,6 @@ class Variation(models.Model):
     product = models.ForeignKey(Product, related_name="variations", on_delete=models.CASCADE)
     category = models.CharField(max_length=120, choices=VAR_CATEGORIES, default='size')
     title = models.CharField(max_length=120)
-    price = models.DecimalField(decimal_places=2, max_digits=10, default=0.00, blank=True, null=True)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
     active = models.BooleanField(default=True)
 
