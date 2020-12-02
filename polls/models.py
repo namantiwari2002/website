@@ -15,6 +15,7 @@ DEPARTMENTS = (
     ("Mech", "Mechanical Engineering"),
     ("Design ", "Design "),
     ("BnB", "Biosciences and Bioengineering"),
+    ("CST" , "Chemical Science And Technology")
     ("None", "None"),
 
 )
